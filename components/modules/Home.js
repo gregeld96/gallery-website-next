@@ -2,27 +2,29 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import Image from "next/image";
 
-function HomeComponent(){
-    const [images, setImages] = useState([]);
+function HomeComponent({props}){
+    // In React usually we will do something like this
 
-    async function fetchImages(){
-        try {
-            let res = await axios.get('http://localhost:3000/api/images/');
+    // const [images, setImages] = useState([]);
+
+    // async function fetchImages(){
+    //     try {
+    //         let res = await axios.get('http://localhost:3000/api/images/');
     
-            setImages(res.data.data.list);
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    //         setImages(res.data.data.list);
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
-    useEffect(() => {
-        fetchImages();
-    }, [])
+    // useEffect(() => {
+    //     fetchImages();
+    // }, [])
 
     return(
             <div className="columns-4 gap-8 p-2">
                 {
-                    images.map((data) => {
+                    props?.map((data) => {
                         return (
                             <Image 
                                 key={data.id}

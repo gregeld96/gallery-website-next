@@ -84,7 +84,6 @@ function UploadImageModal({ open, onClick, fileId, id, section }) {
   }
 
   useEffect(() => {
-    console.log("sini")
     fetchCategory();
     section === 'update' ? fetchDetail() : reset();
   }, [open])
